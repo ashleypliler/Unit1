@@ -1,13 +1,20 @@
+import { useState } from "react";
 import "./App.css";
 import Square from "./Square";
 
 function App() {
-
-  const prop = 'hi there!'
+  const [squares, setSquares] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [player, setPlayer] = useState(true);
+  // const prop = "hi there!";
 
   return (
     <div className="App">
-      <Square propVar={prop}></Square>
+      <Square
+        squares={squares}
+        setSquares={setSquares}
+        player={player}
+        setPlayer={setPlayer}
+      ></Square>
     </div>
   );
 }
