@@ -7,16 +7,31 @@ function App() {
   const [player, setPlayer] = useState(true);
   // const prop = "hi there!";
 
+  const handleClick = () => {
+  setSquares(["", "", "", "", "", "", "", "", ""])
+  setPlayer(true)
+}
+
   return (
     <div className="App">
-      <Square
-        squares={squares}
-        setSquares={setSquares}
-        player={player}
-        setPlayer={setPlayer}
-      ></Square>
+        <div className="container">
+            {squares.map((val, index) => {
+                return (
+                    <Square
+                        setSquares={setSquares}
+                        index={index}
+                        squareValue={val}
+                        squares={squares}
+                        player={player}
+                        setPlayer={setPlayer}
+                    />
+                );
+            })}
+        </div>
+        <button onClick={handleClick}>Reset</button>
     </div>
-  );
+);
 }
 
 export default App;
+
